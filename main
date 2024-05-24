@@ -1,0 +1,41 @@
+[33mcommit a88e2f4ae55169d851f064e421e84fe1144feeba[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;32mmain[m[33m)[m
+Author: setbs <kr9ka41@gmail.com>
+Date:   Fri May 24 07:23:03 2024 +0200
+
+    ready to push
+
+[33mcommit f5f74c49227b3bcf08b5d4df4fc00c845af4d343[m
+Author: relet06 <kr9ka4@gmail.com>
+Date:   Fri May 24 04:55:46 2024 +0200
+
+    bugFix 3
+
+[33mcommit bd07665e5aa4e81213d15bb5d3aedfc6c17de490[m
+Author: relet06 <kr9ka4@gmail.com>
+Date:   Fri May 24 04:55:29 2024 +0200
+
+    bugFix 2
+
+[33mcommit 45c979cb561ec53399e65131545b637b191d719a[m[33m ([m[1;32mpart1[m[33m)[m
+Author: relet06 <kr9ka4@gmail.com>
+Date:   Fri May 24 04:44:38 2024 +0200
+
+    bugFix
+
+[33mcommit 2a7982bddad7038ca7d9ce228068ff70b0693b76[m
+Author: relet06 <kr9ka4@gmail.com>
+Date:   Fri May 24 04:38:07 2024 +0200
+
+    Second part of labolatorium ( added flags and i added own changes in skypt.sh )
+
+[33mcommit 1917811ecd1575c4cb63af2e6b01ac9a4c824d07[m[33m ([m[1;33mtag: [m[1;33mv1.0[m[33m, [m[1;32mpart2[m[33m)[m
+Author: relet06 <kr9ka4@gmail.com>
+Date:   Fri May 24 04:02:01 2024 +0200
+
+    First part ended ( added skrypt.sh with -- options )
+
+[33mcommit 2dec24a0018168870c087331f45325932f7fb6a6[m
+Author: relet06 <kr9ka4@gmail.com>
+Date:   Fri May 24 03:31:25 2024 +0200
+
+    inital commit
