@@ -95,6 +95,6 @@ case "$1" in
         fi
         ;;
     *)
-        echo "Invalid option. Try --help or -h to see available options"
+        echo "Invalid option. Try --help to see available options"
         ;;
 esac
