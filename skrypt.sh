@@ -1,13 +1,30 @@
 #!/bin/bash 
 
-# Date function
+# Function to display today's date
 show_date() {
     echo "Date is: $(date)"
 }
-#Clear log 
-dellog() {
-	rm -f log*.txt
-	echo "All logs was deleted"
+
+# Function to clear log files
+clear_logs() {
+    rm -f log*.txt
+    echo "All logs were deleted"
+}
+clear_error() {
+	rm -f -r error* 
+	echo "All error dirs deleted."
+}
+# Function to create error files
+create_errors() {
+    local count=${1:-100}
+    for ((i=1; i<=count; i++)); do
+        mkdir -p "error${i}"
+        filename="error${i}/error${i}.txt"
+        echo "Filename: $filename" > "$filename"
+        echo "Script: $0" >> "$filename"
+        echo "Date: $(date)" >> "$filename"
+    done
+    echo "$count error files were created"
 }
 
 # Function to create log files
@@ -22,35 +39,58 @@ create_logs() {
     echo "$count log files were created"
 }
 
-# Help function
+# Function to clone repository and set PATH
+init_repo() {
+    git clone https://github.com/relet06/lab4_narzendia_it
+    export PATH=$PATH:$(pwd)/lab4_narzendia_it
+    echo "Repository cloned and PATH set to $(pwd)/lab4_narzendia_it"
+}
+
+# Function to display help message
 show_help() {
     echo "Usage: script.sh [OPTIONS]"
     echo "Options:" 
-    echo "--date        Display today's date"
-    echo "--logs [N]    Create N log files, default=100"
-    echo "--help        Display this message"
-	echo "--dellog 		I added this func to clear my disk from this files while i testing sktypt"
+    echo "--date -d       Display today's date"
+    echo "--logs -l [N]   Create N log files, default=100"
+    echo "--help -h       Display this message"
+    echo "--clear -c [-e] Clear all created files. Default clear all logs. OPTION -e clear all error dirs"
+    echo "--init          Clone repository and set PATH"
+    echo "--error -e [N]  Create N error files, default=100"
 } 
 
 # Main logic
 case "$1" in 
-    --date)
+    --date|-d)
         show_date
         ;;
-    --logs)
+    --logs|-l)
         if [ -n "$2" ]; then 
             create_logs "$2"
         else
             create_logs
         fi
         ;;
-    --help)
+    --help|-h)
         show_help
         ;;
-	--dellog)
-		dellog
-	;;
+    --clear|-c)
+        if [ -n "-e" ]; then
+		clear_error
+	else
+		clear_logs
+	fi
+        ;;
+    --init)
+        init_repo
+        ;;
+    --error|-e)
+        if [ -n "$2" ]; then
+            create_errors "$2"
+        else
+            create_errors
+        fi
+        ;;
     *)
-        echo "Invalid option. Try --help to see available options and use GUI"
+        echo "Invalid option. Try --help to see available options"
         ;;
 esac
