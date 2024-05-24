@@ -53,7 +53,8 @@ show_help() {
     echo "--date -d       Display today's date"
     echo "--logs -l [N]   Create N log files, default=100"
     echo "--help -h       Display this message"
-    echo "--clear -c [-e] Clear all created files. Default clear all logs. OPTION -e clear all error dirs"
+    echo "--clear -c [-e, Clear all created files. Default clear all logs. 
+                      -a]		OPTION -e clear all error dirs. OPTION -a to delete all created by skrypt files"
     echo "--init          Clone repository and set PATH"
     echo "--error -e [N]  Create N error files, default=100"
 } 
@@ -74,8 +75,11 @@ case "$1" in
         show_help
         ;;
     --clear|-c)
-        if [ -n "-e" ]; then
+        if [ "$2" = "-e" ]; then
 		clear_error
+	elif [ "$2" = "-a" ]; then
+		clear_logs 
+		clear_error	
 	else
 		clear_logs
 	fi
